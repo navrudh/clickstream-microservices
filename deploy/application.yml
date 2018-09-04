@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+
+  publisher:
+    build:
+      context: ../publisher
+      dockerfile: deploy/Dockerfile
+    environment:
+    - JAVA_OPTS=-server -Xmx4G -Xms1G
+      -XX:+UnlockExperimentalVMOptions
+      -XX:+UseCGroupMemoryLimitForHeap
+      -XX:-UseGCOverheadLimit
+      -XX:+UseG1GC
+      -XX:+UseStringDeduplication
+      -Djava.awt.headless=true
+      -XX:+PrintHeapAtGC
+      -XX:+CMSClassUnloadingEnabled
+      -XX:+PrintGCDetails
+      -XX:+PrintGCTimeStamps
+    ports:
+    - 9001:8080
+
+  consumer:
+    build:
+      context: ../consumer
+      dockerfile: deploy/Dockerfile
+    environment:
+    - JAVA_OPTS=-server -Xmx4G -Xms1G
+      -XX:+UnlockExperimentalVMOptions
+      -XX:+UseCGroupMemoryLimitForHeap
+      -XX:-UseGCOverheadLimit
+      -XX:+UseG1GC
+      -XX:+UseStringDeduplication
+      -Djava.awt.headless=true
+      -XX:+PrintHeapAtGC
+      -XX:+CMSClassUnloadingEnabled
+      -XX:+PrintGCDetails
+      -XX:+PrintGCTimeStamps
+    ports:
+    - 9002:8080

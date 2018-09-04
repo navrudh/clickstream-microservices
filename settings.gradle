@@ -1,0 +1,5 @@
+rootProject.name = 'clickstream-project'
+include 'publisher'
+include 'consumer'
+include 'shared-lib'
+
