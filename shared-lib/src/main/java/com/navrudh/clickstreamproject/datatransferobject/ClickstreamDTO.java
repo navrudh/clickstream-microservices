@@ -3,13 +3,15 @@ package com.navrudh.clickstreamproject.datatransferobject;
 import com.navrudh.clickstreamproject.domainvalue.HttpMethod;
 import org.hibernate.validator.constraints.URL;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
 public class ClickstreamDTO {
 
-  @NotBlank(message = "userid must not be null or blank")
+  @Pattern(
+      regexp =
+          "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}:[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}")
   private String userid;
 
   @URL(message = "url is invalid")

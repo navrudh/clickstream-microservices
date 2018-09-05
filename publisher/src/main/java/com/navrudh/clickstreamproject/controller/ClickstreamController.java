@@ -3,6 +3,7 @@ package com.navrudh.clickstreamproject.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
 import com.navrudh.clickstreamproject.service.ClickstreamAggregatorService;
+import com.navrudh.clickstreamproject.util.UrlValidator;
 import com.navrudh.clickstreamproject.util.mapper.ClickstreamMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping("v1/click")
@@ -44,14 +47,17 @@ public class ClickstreamController {
   /*
    * POST /click
    *
-   * reason for POST is that URL part of HTTP Request have size restrictions (varying),
+   * reason for POST is that a URL of HTTP Request has a maximum length (varying by implementation),
    * so we pass the url as a POST parameter to get around this to avoid data loss
    *
    * */
 
   @PostMapping("/count")
   @ResponseStatus(HttpStatus.OK)
-  public Long getClickstreamCountByUrl(@RequestParam String url) {
+  public Long getClickstreamCountByUrl(@RequestParam String url)
+      throws MalformedURLException, URISyntaxException {
+
+    UrlValidator.validate(url);
 
     return clickstreamAggregatorService.getUrlCount(url);
   }
