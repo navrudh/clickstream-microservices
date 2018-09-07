@@ -12,9 +12,16 @@ public class KafkaSender implements StreamSender {
 
   private static org.slf4j.Logger LOG = LoggerFactory.getLogger(KafkaSender.class);
 
-  @Autowired private ObjectMapper mapper;
+  private final ObjectMapper mapper;
 
-  @Autowired private KafkaTemplate<String, String> kafkaTemplate;
+  private final KafkaTemplate<String, String> kafkaTemplate;
+
+  @Autowired
+  public KafkaSender(
+      final KafkaTemplate<String, String> kafkaTemplate, final ObjectMapper objectMapper) {
+    this.kafkaTemplate = kafkaTemplate;
+    this.mapper = objectMapper;
+  }
 
   @Override
   public <T> void send(final String topic, final T message) throws JsonProcessingException {

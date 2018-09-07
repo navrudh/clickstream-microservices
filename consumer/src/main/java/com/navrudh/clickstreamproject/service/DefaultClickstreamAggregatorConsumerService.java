@@ -10,7 +10,13 @@ import org.springframework.stereotype.Service;
 public class DefaultClickstreamAggregatorConsumerService
     implements ClickstreamAggregatorConsumerService {
 
-  @Autowired private ClickstreamRepository clickstreamRepository;
+  private final ClickstreamRepository clickstreamRepository;
+
+  @Autowired
+  public DefaultClickstreamAggregatorConsumerService(
+      final ClickstreamRepository clickstreamRepository) {
+    this.clickstreamRepository = clickstreamRepository;
+  }
 
   @Override
   public void consume(ClickstreamDTO clickstreamDTO) {

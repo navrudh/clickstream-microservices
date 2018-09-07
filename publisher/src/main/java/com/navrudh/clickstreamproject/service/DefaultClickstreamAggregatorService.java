@@ -9,9 +9,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class DefaultClickstreamAggregatorService implements ClickstreamAggregatorService {
 
-  @Autowired private StreamSender streamSender;
+  private final StreamSender streamSender;
 
-  @Autowired private ClickstreamRepository clickstreamRepository;
+  private final ClickstreamRepository clickstreamRepository;
+
+  @Autowired
+  public DefaultClickstreamAggregatorService(
+      final StreamSender streamSender, final ClickstreamRepository clickstreamRepository) {
+    this.streamSender = streamSender;
+    this.clickstreamRepository = clickstreamRepository;
+  }
 
   @Override
   public void process(ClickstreamDTO clickstreamDTO) throws JsonProcessingException {

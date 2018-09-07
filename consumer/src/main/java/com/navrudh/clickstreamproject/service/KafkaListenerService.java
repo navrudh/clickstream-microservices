@@ -12,11 +12,17 @@ import java.io.IOException;
 @Service
 public class KafkaListenerService implements StreamListenerService {
 
-  @Autowired private ClickstreamAggregatorConsumerService clickstreamAggregatorConsumerService;
+  private final ClickstreamAggregatorConsumerService clickstreamAggregatorConsumerService;
 
-  @Autowired private ObjectMapper mapper;
+  private final ObjectMapper mapper;
 
-  @Autowired private KafkaTemplate<String, String> kafkaTemplate;
+  @Autowired
+  public KafkaListenerService(
+      final ClickstreamAggregatorConsumerService clickstreamAggregatorConsumerService,
+      final ObjectMapper objectMapper) {
+    this.clickstreamAggregatorConsumerService = clickstreamAggregatorConsumerService;
+    this.mapper = objectMapper;
+  }
 
   @Override
   @KafkaListener(id = "clickstream", topics = "click")
