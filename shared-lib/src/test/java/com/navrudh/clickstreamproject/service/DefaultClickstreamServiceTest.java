@@ -42,7 +42,8 @@ public class DefaultClickstreamServiceTest {
     List<ClickstreamDO> clickstreamDOList = mongoTemplate.find(query, ClickstreamDO.class);
 
     assertThat(clickstreamDOList).isNotEmpty();
-    assertThat(clickstreamDOList.get(0)).isEqualToComparingFieldByField(clickstreamDO);
+    assertThat(clickstreamDOList.get(0))
+        .isEqualToComparingOnlyGivenFields(clickstreamDO, "userid", "url", "type", "timestamp");
   }
 
   @Test

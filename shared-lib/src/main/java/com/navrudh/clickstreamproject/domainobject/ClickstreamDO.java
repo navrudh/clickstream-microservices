@@ -1,6 +1,7 @@
 package com.navrudh.clickstreamproject.domainobject;
 
 import com.navrudh.clickstreamproject.domainvalue.HttpMethod;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "clickstream")
@@ -13,6 +14,8 @@ public class ClickstreamDO {
   private HttpMethod type;
 
   private Long timestamp;
+
+  @Version private Long version;
 
   private ClickstreamDO() {}
 
@@ -53,5 +56,9 @@ public class ClickstreamDO {
 
   public void setTimestamp(Long timestamp) {
     this.timestamp = timestamp;
+  }
+
+  public Long getVersion() {
+    return version;
   }
 }
