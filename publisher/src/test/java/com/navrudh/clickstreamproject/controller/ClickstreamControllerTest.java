@@ -45,7 +45,7 @@ public class ClickstreamControllerTest {
 
     Mockito.doNothing()
         .when(clickstreamAggregatorService)
-        .process(ArgumentMatchers.any(ClickstreamDO.class));
+        .process(ArgumentMatchers.any(ClickstreamDTO.class));
 
     this.mockMvc
         .perform(
@@ -69,7 +69,7 @@ public class ClickstreamControllerTest {
 
     Mockito.doNothing()
         .when(clickstreamAggregatorService)
-        .process(ArgumentMatchers.any(ClickstreamDO.class));
+        .process(ArgumentMatchers.any(ClickstreamDTO.class));
 
     this.mockMvc
         .perform(
@@ -93,7 +93,7 @@ public class ClickstreamControllerTest {
 
     Mockito.doNothing()
         .when(clickstreamAggregatorService)
-        .process(ArgumentMatchers.any(ClickstreamDO.class));
+        .process(ArgumentMatchers.any(ClickstreamDTO.class));
 
     this.mockMvc
         .perform(
@@ -117,7 +117,7 @@ public class ClickstreamControllerTest {
 
     Mockito.doNothing()
         .when(clickstreamAggregatorService)
-        .process(ArgumentMatchers.any(ClickstreamDO.class));
+        .process(ArgumentMatchers.any(ClickstreamDTO.class));
 
     this.mockMvc
         .perform(
@@ -141,7 +141,7 @@ public class ClickstreamControllerTest {
 
     Mockito.doNothing()
         .when(clickstreamAggregatorService)
-        .process(ArgumentMatchers.any(ClickstreamDO.class));
+        .process(ArgumentMatchers.any(ClickstreamDTO.class));
 
     this.mockMvc
         .perform(

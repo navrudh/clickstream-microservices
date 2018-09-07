@@ -1,7 +1,7 @@
 package com.navrudh.clickstreamproject.service;
 
-import com.navrudh.clickstreamproject.domainobject.ClickstreamDO;
+import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
 
 public interface ClickstreamAggregatorConsumerService {
-  void consume(ClickstreamDO makeClickstreamDO);
+  void consume(ClickstreamDTO clickstreamDTO);
 }

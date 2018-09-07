@@ -1,7 +1,8 @@
 package com.navrudh.clickstreamproject.service;
 
 import com.navrudh.clickstreamproject.dataaccessobject.ClickstreamRepository;
-import com.navrudh.clickstreamproject.domainobject.ClickstreamDO;
+import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
+import com.navrudh.clickstreamproject.util.mapper.ClickstreamMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ public class DefaultClickstreamAggregatorConsumerService
   @Autowired private ClickstreamRepository clickstreamRepository;
 
   @Override
-  public void consume(ClickstreamDO clickstreamDO) {
-    clickstreamRepository.save(clickstreamDO);
+  public void consume(ClickstreamDTO clickstreamDTO) {
+    clickstreamRepository.save(ClickstreamMapper.makeClickstreamDO(clickstreamDTO));
   }
 }

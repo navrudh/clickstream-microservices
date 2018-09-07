@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
 import com.navrudh.clickstreamproject.service.ClickstreamAggregatorService;
 import com.navrudh.clickstreamproject.util.UrlValidator;
-import com.navrudh.clickstreamproject.util.mapper.ClickstreamMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,7 +40,7 @@ public class ClickstreamController {
   public void processClickstreamData(@Valid @RequestBody ClickstreamDTO clickstreamDTO)
       throws JsonProcessingException {
 
-    clickstreamAggregatorService.process((ClickstreamMapper.makeClickstreamDO(clickstreamDTO)));
+    clickstreamAggregatorService.process(clickstreamDTO);
   }
 
   /*

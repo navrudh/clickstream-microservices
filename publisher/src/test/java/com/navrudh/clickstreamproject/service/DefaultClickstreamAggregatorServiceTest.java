@@ -1,7 +1,7 @@
 package com.navrudh.clickstreamproject.service;
 
 import com.navrudh.clickstreamproject.dataaccessobject.ClickstreamRepository;
-import com.navrudh.clickstreamproject.domainobject.ClickstreamDO;
+import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -21,11 +21,11 @@ public class DefaultClickstreamAggregatorServiceTest {
   @Test
   public void process() throws Exception {
 
-    ClickstreamDO clickstreamDO = new ClickstreamDO(null, null, null, null);
+    ClickstreamDTO clickstreamDTO = new ClickstreamDTO(null, null, "get", null);
 
-    defaultClickstreamAggregatorService.process(clickstreamDO);
+    defaultClickstreamAggregatorService.process(clickstreamDTO);
 
-    Mockito.verify(streamSender, Mockito.times(1)).send("click", clickstreamDO);
+    Mockito.verify(streamSender, Mockito.times(1)).send("click", clickstreamDTO);
   }
 
   @Test

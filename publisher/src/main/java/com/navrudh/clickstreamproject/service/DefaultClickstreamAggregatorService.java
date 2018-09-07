@@ -2,7 +2,7 @@ package com.navrudh.clickstreamproject.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.navrudh.clickstreamproject.dataaccessobject.ClickstreamRepository;
-import com.navrudh.clickstreamproject.domainobject.ClickstreamDO;
+import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,8 @@ public class DefaultClickstreamAggregatorService implements ClickstreamAggregato
   @Autowired private ClickstreamRepository clickstreamRepository;
 
   @Override
-  public void process(ClickstreamDO makeClickstreamDO) throws JsonProcessingException {
-    streamSender.send("click", makeClickstreamDO);
+  public void process(ClickstreamDTO clickstreamDTO) throws JsonProcessingException {
+    streamSender.send("click", clickstreamDTO);
   }
 
   @Override
