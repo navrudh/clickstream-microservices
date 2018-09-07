@@ -33,4 +33,5 @@ dependencies {
   compile('org.hibernate.validator:hibernate-validator')
   compile('com.fasterxml.jackson.core:jackson-annotations')
   testCompile('org.springframework.boot:spring-boot-starter-test')
+  testRuntime('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
 }

@@ -29,9 +29,7 @@ repositories {
 dependencies {
   compile project(':shared-lib')
   compile('org.springframework.boot:spring-boot-starter-web')
-  compile('org.springframework.boot:spring-boot-starter-data-mongodb')
   compile('org.springframework.kafka:spring-kafka')
-  testRuntime('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
   testCompile('org.springframework.boot:spring-boot-starter-test')
   testCompile('org.springframework.kafka:spring-kafka-test')
 }

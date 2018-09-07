@@ -2,7 +2,6 @@ package com.navrudh.clickstreamproject.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
-import com.navrudh.clickstreamproject.domainobject.ClickstreamDO;
 import com.navrudh.clickstreamproject.service.ClickstreamAggregatorService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

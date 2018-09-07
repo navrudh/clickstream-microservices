@@ -1,6 +1,5 @@
 package com.navrudh.clickstreamproject.service;
 
-import com.navrudh.clickstreamproject.dataaccessobject.ClickstreamRepository;
 import com.navrudh.clickstreamproject.datatransferobject.ClickstreamDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +15,7 @@ public class DefaultClickstreamAggregatorServiceTest {
 
   @Spy private StreamSender streamSender;
 
-  @Spy private ClickstreamRepository clickstreamRepository;
+  @Spy private ClickstreamService clickstreamService;
 
   @Test
   public void process() throws Exception {
@@ -33,6 +32,6 @@ public class DefaultClickstreamAggregatorServiceTest {
 
     defaultClickstreamAggregatorService.getUrlCount("url");
 
-    Mockito.verify(clickstreamRepository, Mockito.times(1)).countByUrl("url");
+    Mockito.verify(clickstreamService, Mockito.times(1)).countByUrl("url");
   }
 }
