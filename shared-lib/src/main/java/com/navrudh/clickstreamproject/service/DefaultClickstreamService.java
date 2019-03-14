@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/*
+ * Default clickstream service implementation that writes to MongoDB
+ * */
 @Service
 public class DefaultClickstreamService implements ClickstreamService {
 
